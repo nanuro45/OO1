@@ -1,0 +1,6 @@
+package ar.edu.unlp.info.oo1.CorreoAnidado;
+
+public class ClienteCorreo {
+	private ArrayList<Carpeta> carpetas;
+	private Cap
+}

@@ -1,0 +1,20 @@
+package ar.edu.unlp.info.oo1.IntervaloTiempo;
+
+import java.time.Duration;
+import java.time.LocalDate;
+
+public class Tiempo {
+	private LocalDate from;
+	private LocalDate to;
+	
+	public LocalDate getFrom() {
+		return this.from;
+	}
+	public LocalDate getTo() {
+		return this.to;
+	}
+	public int sizeInDays() {
+		return (int) Duration.between(from, to).toDays();
+	}
+	
+} 

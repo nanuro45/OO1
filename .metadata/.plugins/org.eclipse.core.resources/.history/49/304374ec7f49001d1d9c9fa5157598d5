@@ -1,0 +1,11 @@
+package ar.edu.unlp.info.oo1.AlquileresPropiedades;
+
+import java.time.LocalDateTime;
+
+public class Reserva {
+	private LocalDateTime fechaIngreso;
+	private LocalDateTime fechaFin;
+	private Usuario inquilino;
+	private Alquiler propAlquilada;
+	 
+}

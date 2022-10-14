@@ -1,0 +1,24 @@
+package ar.edu.unlp.info.oo1.Solidos;
+
+public class Cilindro {
+	int radio;
+	int altura;
+	
+	public Cilindro(int radio, int altura) {
+		super();
+		this.radio = radio;
+		this.altura = altura;
+	}
+	public int getRadio() {
+		return radio;
+	}
+	public void setRadio(int radio) {
+		this.radio = radio;
+	}
+	public int getAltura() {
+		return altura;
+	}
+	public void setAltura(int altura) {
+		this.altura = altura;
+	}
+}

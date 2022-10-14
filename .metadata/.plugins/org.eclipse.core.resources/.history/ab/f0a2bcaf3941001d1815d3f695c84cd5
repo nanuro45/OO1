@@ -1,0 +1,27 @@
+package ar.edu.unlp.info.oo1.ArbolesB.tp2;
+
+public class ColaGenerica<T> {
+    
+    private ListaGenerica<T> cola = new ListaEnlazadaGenerica<T>();
+
+    public ColaGenerica(){
+        
+    }
+    public void encolar(ArbolGeneral<T> elem){
+        cola.agregarFinal(elem);
+    }
+
+    public T desencolar(){
+        T l = cola.elemento(1);
+        cola.eliminar(l);
+        return l;
+    }
+
+    public void tope(){
+        System.out.println(cola.elemento(1));
+    }
+    public boolean esVacio(){
+        return cola.tamanio() == 0;
+    }
+
+}

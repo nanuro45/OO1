@@ -1,0 +1,42 @@
+package ar.edu.unlp.info.oo1.AlquileresPropiedades;
+
+
+public class Alquiler {
+	private Usuario usuarioProp;
+	private String nombre;
+	private String direccion;
+	private int precioNoche;
+	private String descipcion;
+	
+	
+	public Usuario getUsuarioProp() {
+		return usuarioProp;
+	}
+	public void setUsuarioProp(Usuario usuarioProp) {
+		this.usuarioProp = usuarioProp;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+	public int getPrecioNoche() {
+		return precioNoche;
+	}
+	public void setPrecioNoche(int precioNoche) {
+		this.precioNoche = precioNoche;
+	}
+	public String getDescipcion() {
+		return descipcion;
+	}
+	public void setDescipcion(String descipcion) {
+		this.descipcion = descipcion;
+	}
+}

@@ -1,0 +1,53 @@
+package ar.edu.unlp.info.oo1.CorreoAnidado;
+
+import java.util.ArrayList;
+
+public class Email {
+	private String nombre;
+	private String cuerpo;
+	private ArrayList<Archivo> adjunto;
+	
+	public Email(String nombre, String cuerpo, ArrayList<Archivo> adjunto) {
+		super();
+		this.nombre = nombre;
+		this.cuerpo = cuerpo;
+		this.adjunto = adjunto;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getCuerpo() {
+		return cuerpo;
+	}
+	public void setCuerpo(String cuerpo) {
+		this.cuerpo = cuerpo;
+	}
+	public ArrayList<Archivo> getAdjunto() {
+		return adjunto;
+	}
+	public void setAdjunto(ArrayList<Archivo> adjunto) {
+		this.adjunto = adjunto;
+	}
+	public void agregarArchivo(Archivo a) {
+		this.adjunto.add(a);
+	}
+	public void eliminarArchivo(Archivo a) {
+		this.adjunto.remove(a);
+	}
+	public double tamanio() {
+		return this.nombre.length()+this.cuerpo.length()+sumaArchivos();
+	}
+	private double sumaArchivos() {
+		return this.adjunto.stream().mapToDouble(i -> i.tamanio()).sum();
+	}
+	public Email buscar(String texto) {
+		if(this.nombre.contains(texto) || this.cuerpo.contains(texto)) {
+			return this;
+		}
+		return null;
+	}
+	
+}

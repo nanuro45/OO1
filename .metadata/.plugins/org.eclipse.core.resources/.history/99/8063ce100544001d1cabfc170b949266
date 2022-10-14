@@ -1,0 +1,26 @@
+package ar.edu.unlp.info.oo1.CorreoAnidado;
+
+import java.util.ArrayList;
+
+public class Carpeta {
+	private String nombre;
+	private ArrayList<Email> emails;
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public void agregarEmail(Email e) {
+		this.emails.add(e);
+	}
+	public void eliminarEmail(Email e) {
+		this.emails.remove(e);
+	}
+	public int tamanioCarp() {
+		return (int)this.emails.stream().mapToDouble(i-> i.tamanio()).sum();
+	}
+	
+}

@@ -1,0 +1,23 @@
+package ar.edu.unlp.info.oo1.AlquileresPropiedades;
+
+import java.util.ArrayList;
+
+public class OOBnB {
+	private ArrayList<Reserva> reservas;
+	private ArrayList<Usuario> inquilinos;
+	
+	public void agregarUsuario(Usuario u) {
+		this.inquilinos.add(u);
+	}
+	public void agregarReserva(Reserva r) {
+		if(buscarPropiedadDisponible() != null) {		
+			this.reservas.add(r);
+		}
+	}
+	public ArrayList<Reserva> buscarPropiedadDisponible(){
+		this.reservas.stream();
+		return null;
+	}
+	
+	
+}

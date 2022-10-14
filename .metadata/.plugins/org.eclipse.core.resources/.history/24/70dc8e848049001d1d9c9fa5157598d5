@@ -1,0 +1,8 @@
+package ar.edu.unlp.info.oo1.AlquileresPropiedades;
+
+import java.util.ArrayList;
+
+public class OOBnB {
+	private ArrayList<Reserva> reservas;
+	private ArrayList<Usuario> inquilinos;
+}

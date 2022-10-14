@@ -1,0 +1,44 @@
+package ar.edu.unlp.info.oo1.CorreoAnidado;
+
+import java.util.ArrayList;
+
+public class ClienteCorreo {
+	private ArrayList<Carpeta> carpetas;
+	private Carpeta inbox;
+	
+	public ClienteCorreo(ArrayList<Carpeta> carpetas, Carpeta inbox) {
+		super();
+		this.carpetas = carpetas;
+		this.inbox = inbox;
+	}
+	public ArrayList<Carpeta> getCarpetas() {
+		return carpetas;
+	}
+	public void setCarpetas(ArrayList<Carpeta> carpetas) {
+		this.carpetas = carpetas;
+	}
+	public Carpeta getInbox() {
+		return inbox;
+	}
+	public void setInbox(Carpeta inbox) {
+		this.inbox = inbox;
+	}
+	public int espacioOcupado() {
+		return 0;
+	}
+	private int sumaCarpeta() {
+		return (int) this.carpetas.stream().mapToDouble(i -> i.tamanioCarp()).sum();
+	}
+	private int sumaInbox() {
+		return this.inbox.tamanioCarp();
+	}
+	public Email buscar(String texto) {
+		return null;
+	}
+	public void mover(Email email, Carpeta origen, Carpeta destino) {
+		
+	}
+	public void recibir (Email email) {	
+		
+	}
+}
