@@ -1,5 +1,6 @@
 package ar.edu.unlp.info.oo1.AlquileresPropiedades;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class Reserva {
@@ -35,5 +36,11 @@ public class Reserva {
 	public boolean includesDate (LocalDateTime other) {
 		return other.isAfter(this.getFechaIngreso()) && other.isBefore(this.getFechaFin()) ||
 				other.equals(this.getFechaFin()) || other.equals(this.getFechaIngreso());
+	}
+	public int cantidadDeDias() {
+		return (int) Duration.between(this.fechaIngreso,fechaFin).toDays();
+	}
+	public double precioReservaDias(Reserva r) {
+		return this.propAlquilada.getPrecioNoche() * cantidadDeDias();
 	}
 }
