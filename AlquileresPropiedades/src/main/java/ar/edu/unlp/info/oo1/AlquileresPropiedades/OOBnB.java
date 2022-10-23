@@ -2,11 +2,20 @@ package ar.edu.unlp.info.oo1.AlquileresPropiedades;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.stream.DoubleStream;
+import java.util.stream.Collectors;
+
 
 public class OOBnB {
 	private ArrayList<Reserva> reservas;
 	private ArrayList<Usuario> inquilinos;
+
+	
+	
+	public OOBnB() {
+		super();
+		this.reservas = new ArrayList<Reserva>();
+		this.inquilinos = new ArrayList<Usuario>();
+	}
 	
 	public void agregarUsuario(Usuario u) {
 		this.inquilinos.add(u);
@@ -17,7 +26,7 @@ public class OOBnB {
 		}
 	}
 	public ArrayList<Reserva> buscarPropiedadDisponible(LocalDateTime solicitud){
-		return this.reservas.stream().map(r -> r.includesDate(solicitud)).collect(null);
+		return this.reservas.stream().filter(r -> r.includesDate(solicitud)).collect(Collectors.toCollection(ArrayList::new));
 	}
 	public void eliminarReserva(LocalDateTime c) {
 		if(buscarPropiedadPorFecha(c) != null) {
@@ -27,10 +36,25 @@ public class OOBnB {
 	private Reserva buscarPropiedadPorFecha(LocalDateTime c) {
 		return this.reservas.stream().filter(i -> i.includesDate(c)).findFirst().orElse(null);	
 	}
-	public DoubleStream calcularPrecioReserva(Reserva r) {
-		return this.reservas.stream().mapToDouble(i -> i.precioReservaDias(r));	
+	public double calcularPrecioReserva(Reserva r) {
+		return r.precioReservaDias();
 	}
 	public ArrayList<Reserva> reservasUsuario(Usuario u){
-		return this.reservas.stream().filter(i -> i.getInquilino().getDni() == u.getDni()).collect(null);
+		return this.reservas.stream().filter(i -> i.getInquilino().getDni() == u.getDni()).collect(Collectors.toCollection(ArrayList::new));
+	}
+	
+	public double calculoMontoCancelacion(Reserva r, LocalDateTime fechaEstimativa) {
+		switch(r.getTipoCancelacion()){
+			case "flexible":{
+				return r.precioReservaDias();
+			}
+			case "moderada":{
+				return r.cantidadDiasDiferencia(fechaEstimativa);
+			}
+			default:{
+				return 0;
+			}
+		}
+
 	}
 }
