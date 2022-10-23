@@ -1,13 +1,9 @@
-package ar.edu.unlp.info.oo1.AlquileresPropiedades;
-
-import java.time.Duration;
-import java.time.LocalDateTime;
-
 public class Reserva {
 	private LocalDateTime fechaIngreso;
 	private LocalDateTime fechaFin;
 	private Usuario inquilino;
 	private Alquiler propAlquilada;
+	private String tipoCancelacion;
 	
 	public LocalDateTime getFechaIngreso() {
 		return fechaIngreso;
@@ -40,7 +36,19 @@ public class Reserva {
 	public int cantidadDeDias() {
 		return (int) Duration.between(this.fechaIngreso,fechaFin).toDays();
 	}
-	public double precioReservaDias(Reserva r) {
+	public double precioReservaDias() {
 		return this.propAlquilada.getPrecioNoche() * cantidadDeDias();
 	}
+	public String getTipoCancelacion() {
+		return tipoCancelacion;
+	}
+	public void setTipoCancelacion(String tipoCancelacion) {
+		this.tipoCancelacion = tipoCancelacion;
+	}
+	public double cantidadDiasDiferencia(LocalDateTime c) {
+		int x =(int)Duration.between(c,this.fechaIngreso).toDays();
+		
+		return (x>=7) ? this.precioReservaDias() : this.precioReservaDias()/2;
+	}
 }
+
